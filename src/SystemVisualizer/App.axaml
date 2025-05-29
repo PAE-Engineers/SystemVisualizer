@@ -1,0 +1,27 @@
+<Application
+    RequestedThemeVariant="Default"
+    x:Class="SystemVisualizer.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:converters="clr-namespace:SystemVisualizer.Converters"
+    xmlns:local="using:SystemVisualizer"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <converters:SizeConverter x:Key="SizeConverter" />
+            <converters:PointConverter x:Key="PointConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://Nodify/Theme.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,80 @@
+﻿<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="SystemVisualizer.Views.EditorView"
+    x:DataType="viewModels:EditorViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:SystemVisualizer.Core.Models;assembly=SystemVisualizer.Core"
+    xmlns:nodify="https://miroiu.github.io/nodify"
+    xmlns:viewModels="clr-namespace:SystemVisualizer.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid RowDefinitions="Auto, *">
+<StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10">
+    <Button Content="+" Command="{Binding ZoomInCommand}"/>
+    <Button Content="-" Command="{Binding ZoomOutCommand}"/>
+    <Button Content="Reset" Command="{Binding ResetViewportCommand}"/>
+    
+</StackPanel>
+        <nodify:NodifyEditor
+            Connections="{Binding Connections}"
+            Grid.Row="1"
+            DisableZooming="False"
+            DisablePanning="False"
+            ViewportLocation="{Binding ViewportLocation, Mode=TwoWay, Converter={StaticResource PointConverter}, UpdateSourceTrigger=PropertyChanged}"
+            ViewportSize="{Binding ViewportSize, Mode=TwoWay, Converter={StaticResource SizeConverter}, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Nodes}"
+            SelectedItem="{Binding SelectedNode}"
+            SelectedItems="{Binding SelectedNodes}">
+
+            <nodify:NodifyEditor.ConnectionTemplate>
+
+                <DataTemplate DataType="models:Edge">
+                    <nodify:LineConnection Source="{Binding Source.Anchor, Converter={StaticResource PointConverter}}" Target="{Binding Target.Anchor, Converter={StaticResource PointConverter}}" />
+                </DataTemplate>
+
+            </nodify:NodifyEditor.ConnectionTemplate>
+
+            <nodify:NodifyEditor.ItemTemplate>
+
+                <DataTemplate DataType="{x:Type models:Node}">
+                    <nodify:Node
+                        Header="{Binding Name}"
+                        Input="{Binding Inputs}"
+                        Output="{Binding Outputs}">
+
+                        <nodify:Node.InputConnectorTemplate>
+                            <DataTemplate DataType="{x:Type models:Connector}">
+                                <nodify:NodeInput
+                                    Anchor="{Binding Anchor, Mode=OneWayToSource, Converter={StaticResource PointConverter}}"
+                                    Header="{Binding Name}"
+                                    IsConnected="{Binding IsConnected}" />
+                            </DataTemplate>
+                        </nodify:Node.InputConnectorTemplate>
+
+                        <nodify:Node.OutputConnectorTemplate>
+                            <DataTemplate DataType="{x:Type models:Connector}">
+                                <nodify:NodeOutput
+                                    Anchor="{Binding Anchor, Mode=OneWayToSource, Converter={StaticResource PointConverter}}"
+                                    Header="{Binding Name}"
+                                    IsConnected="{Binding IsConnected}" />
+                            </DataTemplate>
+                        </nodify:Node.OutputConnectorTemplate>
+
+                    </nodify:Node>
+                </DataTemplate>
+            </nodify:NodifyEditor.ItemTemplate>
+
+            <nodify:NodifyEditor.ItemContainerTheme>
+                <ControlTheme TargetType="{x:Type nodify:ItemContainer}">
+                    <Setter Property="Location" Value="{Binding Location, Converter={StaticResource PointConverter}, DataType={x:Type models:Node}}" />
+                    <Setter Property="ActualSize" Value="{Binding ActualSize, Converter={StaticResource SizeConverter}, DataType={x:Type models:Node}}" />
+                </ControlTheme>
+            </nodify:NodifyEditor.ItemContainerTheme>
+        </nodify:NodifyEditor>
+    </Grid>
+
+</UserControl>

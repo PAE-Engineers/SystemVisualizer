@@ -1,0 +1,56 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="SystemVisualizer.Views.MainView"
+    x:DataType="vm:MainViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:SystemVisualizer.Views"
+    xmlns:vm="clr-namespace:SystemVisualizer.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.DataContext>
+        <!--
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        -->
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+    <!--<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+    <Grid RowDefinitions="Auto, 10, *">
+        <Menu Grid.Row="0">
+            <Menu.Items>
+                <MenuItem Header="File">
+                    <MenuItem Command="{Binding OpenDataFileAsync}" Header="Open" />
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Command="{Binding Editor.ApplyLayout}" Header="Reset Layout" />
+                </MenuItem>
+            </Menu.Items>
+        </Menu>
+
+        <Grid Grid.Row="2" ColumnDefinitions="Auto, 10, *" RowDefinitions="Auto, *">
+           <DockPanel>
+               <Label Content="Search:" DockPanel.Dock="Left"/>
+               <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+           </DockPanel>
+        
+           <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Nodes}" AutoScrollToSelectedItem="True" >
+               <ListBox.ItemTemplate>
+                   <DataTemplate>
+                       <TextBlock Text="{Binding Name}"/>
+                   </DataTemplate>
+               </ListBox.ItemTemplate>
+           </ListBox>
+            <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"/> 
+            <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
+                Background="{DynamicResource ThemeBackground}"
+                Margin="10"
+                Padding="10">
+                <views:EditorView DataContext="{Binding Editor}" />
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

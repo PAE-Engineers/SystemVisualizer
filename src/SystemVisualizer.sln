@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemVisualizer", "SystemVisualizer\SystemVisualizer.csproj", "{EBFA8512-1EA5-4D8C-B4AC-AB5B48A6D568}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemVisualizer.Desktop", "SystemVisualizer.Desktop\SystemVisualizer.Desktop.csproj", "{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemVisualizer.Browser", "SystemVisualizer.Browser\SystemVisualizer.Browser.csproj", "{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemVisualizer.iOS", "SystemVisualizer.iOS\SystemVisualizer.iOS.csproj", "{EBD9022F-BC83-4846-9A11-6F7F3772DC64}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemVisualizer.Android", "SystemVisualizer.Android\SystemVisualizer.Android.csproj", "{7AD1DAC8-7FBE-49D5-8614-7321233DB82E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3DA99C4E-89E3-4049-9C22-0A7EC60D83D8}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemVisualizer.DataProviders", "SystemVisualizer.DataProviders\SystemVisualizer.DataProviders.csproj", "{EC4A096D-F840-45EC-9F72-4EEEFDBD346A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemVisualizer.Tests", "SystemVisualizer.Tests\SystemVisualizer.Tests.csproj", "{9A87A350-4B44-44C4-A81E-315363DC6052}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemVisualizer.Core", "SystemVisualizer.Core\SystemVisualizer.Core.csproj", "{8E9F5DA4-9F6F-E4FA-4588-F5AE6BD4F4F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemVisualizer.Layout", "SystemVisualizer.Layout\SystemVisualizer.Layout.csproj", "{B4BC7483-A44D-F774-A4DD-360630BA63DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemVisualizer.WPF", "SystemVisualizer.WPF\SystemVisualizer.WPF.csproj", "{C02E63F9-06ED-4AA7-C591-E0AAEAD0F351}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBFA8512-1EA5-4D8C-B4AC-AB5B48A6D568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBFA8512-1EA5-4D8C-B4AC-AB5B48A6D568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBFA8512-1EA5-4D8C-B4AC-AB5B48A6D568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBFA8512-1EA5-4D8C-B4AC-AB5B48A6D568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD9022F-BC83-4846-9A11-6F7F3772DC64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD9022F-BC83-4846-9A11-6F7F3772DC64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD9022F-BC83-4846-9A11-6F7F3772DC64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD9022F-BC83-4846-9A11-6F7F3772DC64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AD1DAC8-7FBE-49D5-8614-7321233DB82E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD1DAC8-7FBE-49D5-8614-7321233DB82E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD1DAC8-7FBE-49D5-8614-7321233DB82E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD1DAC8-7FBE-49D5-8614-7321233DB82E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC4A096D-F840-45EC-9F72-4EEEFDBD346A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC4A096D-F840-45EC-9F72-4EEEFDBD346A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC4A096D-F840-45EC-9F72-4EEEFDBD346A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC4A096D-F840-45EC-9F72-4EEEFDBD346A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A87A350-4B44-44C4-A81E-315363DC6052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A87A350-4B44-44C4-A81E-315363DC6052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A87A350-4B44-44C4-A81E-315363DC6052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A87A350-4B44-44C4-A81E-315363DC6052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E9F5DA4-9F6F-E4FA-4588-F5AE6BD4F4F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E9F5DA4-9F6F-E4FA-4588-F5AE6BD4F4F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E9F5DA4-9F6F-E4FA-4588-F5AE6BD4F4F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E9F5DA4-9F6F-E4FA-4588-F5AE6BD4F4F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4BC7483-A44D-F774-A4DD-360630BA63DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4BC7483-A44D-F774-A4DD-360630BA63DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4BC7483-A44D-F774-A4DD-360630BA63DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4BC7483-A44D-F774-A4DD-360630BA63DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C02E63F9-06ED-4AA7-C591-E0AAEAD0F351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02E63F9-06ED-4AA7-C591-E0AAEAD0F351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02E63F9-06ED-4AA7-C591-E0AAEAD0F351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02E63F9-06ED-4AA7-C591-E0AAEAD0F351}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83CB65B8-011F-4ED7-BCD3-A6CFA935EF7E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,18 @@
+﻿<Application x:Class="SystemVisualizer.WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:SystemVisualizer.WPF.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary  Source="pack://application:,,,/Nodify;component/Themes/Nodify.xaml"/>
+                <ResourceDictionary>
+                    <converters:TupleToPointConverter x:Key="PointConverter" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <converters:TupleToPointConverter x:Key="PointConverter" />
+            <converters:SizeConverter x:Key="SizeConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

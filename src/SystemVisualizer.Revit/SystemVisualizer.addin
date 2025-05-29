@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command SystemVisualizer</Text>
+    <Description>Some description for SystemVisualizer</Description>
+    <Assembly>.\SystemVisualizer\SystemVisualizer.App.dll</Assembly>
+    <FullClassName>SystemVisualizer.App.Command</FullClassName>
+    <ClientId>80571270-0223-44e4-92ac-999b5dfe2e5b</ClientId>
+    <VendorId>PAE</VendorId>
+    <VendorDescription></VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application SystemVisualizer</Name>
+    <Assembly>.\SystemVisualizer\SystemVisualizer.App.dll</Assembly>
+    <FullClassName>SystemVisualizer.App.App</FullClassName>
+    <ClientId>a2d3b10c-0fc3-41e0-bef8-9df220625eed</ClientId>
+    <VendorId>PAE</VendorId>
+    <VendorDescription></VendorDescription>
+  </AddIn>
+</RevitAddIns>

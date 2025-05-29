@@ -1,0 +1,5 @@
+﻿Panel Name,Supply From
+PANEL1,
+PANEL2,PANEL1
+Transformer1,PANEL1
+PANEL3,Transformer1

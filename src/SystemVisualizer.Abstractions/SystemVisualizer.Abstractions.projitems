@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>76d78e8b-f674-41a4-bebc-0d8b35d948fb</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SystemVisualizer.Abstractions</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\NodeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IConnector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IDataProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\INode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Connection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Connector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Node.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Point.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net481</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<AppDataLocalDir>$([System.Environment]::GetFolderPath(SpecialFolder.LocalApplicationData))</AppDataLocalDir>
+		<!--<AddinManifestDir>C:\Temp</AddinManifestDir>-->
+		<AddinManifestDir>$(AppDataLocalDir)\..\Roaming\Autodesk\Revit\Addins\2022</AddinManifestDir>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ExcelDataReader" Version="3.7.0" />
+		<PackageReference Include="Nodify" Version="7.0.1" />
+		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2022.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="SystemVisualizer.addin">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<SourceFiles Include="$(OutputPath)\**\*.*" />
+	</ItemGroup>
+
+	<Target Name="AfterBuild2" AfterTargets="AfterBuild" Condition="$(Configuration)==Debug">
+		<!--<Copy SourceFiles="$(OutputPath)\SystemVisualizer.addin" DestinationFolder="$(AddinManifestDir)" />
+		<Copy SourceFiles="@(SourceFiles)" DestinationFolder="$(AddinManifestDir)\SystemVisualizer" />-->
+	</Target>
+
+</Project>
