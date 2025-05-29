@@ -24,8 +24,8 @@
             Grid.Row="1"
             DisableZooming="False"
             DisablePanning="False"
-            ViewportLocation="{Binding ViewportLocation, Mode=TwoWay, Converter={StaticResource PointConverter}, UpdateSourceTrigger=PropertyChanged}"
-            ViewportSize="{Binding ViewportSize, Mode=TwoWay, Converter={StaticResource SizeConverter}, UpdateSourceTrigger=PropertyChanged}"
+            ViewportLocation="{Binding ViewportLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            ViewportZoom="{Binding ViewportZoom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             ItemsSource="{Binding Nodes}"
             SelectedItem="{Binding SelectedNode}"
             SelectedItems="{Binding SelectedNodes}">
@@ -33,7 +33,7 @@
             <nodify:NodifyEditor.ConnectionTemplate>
 
                 <DataTemplate DataType="models:Edge">
-                    <nodify:LineConnection Source="{Binding Source.Anchor, Converter={StaticResource PointConverter}}" Target="{Binding Target.Anchor, Converter={StaticResource PointConverter}}" />
+                    <nodify:LineConnection Source="{Binding Source.Anchor}" Target="{Binding Target.Anchor}" />
                 </DataTemplate>
 
             </nodify:NodifyEditor.ConnectionTemplate>
@@ -42,14 +42,17 @@
 
                 <DataTemplate DataType="{x:Type models:Node}">
                     <nodify:Node
+                        Width="{Binding Width, Mode=OneWayToSource}"
+                        Height="{Binding Height, Mode=OneWayToSource}"
                         Header="{Binding Name}"
                         Input="{Binding Inputs}"
-                        Output="{Binding Outputs}">
+                        Output="{Binding Outputs}"
+                        >
 
                         <nodify:Node.InputConnectorTemplate>
                             <DataTemplate DataType="{x:Type models:Connector}">
                                 <nodify:NodeInput
-                                    Anchor="{Binding Anchor, Mode=OneWayToSource, Converter={StaticResource PointConverter}}"
+                                    Anchor="{Binding Anchor, Mode=OneWayToSource}"
                                     Header="{Binding Name}"
                                     IsConnected="{Binding IsConnected}" />
                             </DataTemplate>
@@ -58,7 +61,7 @@
                         <nodify:Node.OutputConnectorTemplate>
                             <DataTemplate DataType="{x:Type models:Connector}">
                                 <nodify:NodeOutput
-                                    Anchor="{Binding Anchor, Mode=OneWayToSource, Converter={StaticResource PointConverter}}"
+                                    Anchor="{Binding Anchor, Mode=OneWayToSource}"
                                     Header="{Binding Name}"
                                     IsConnected="{Binding IsConnected}" />
                             </DataTemplate>
@@ -70,8 +73,8 @@
 
             <nodify:NodifyEditor.ItemContainerTheme>
                 <ControlTheme TargetType="{x:Type nodify:ItemContainer}">
-                    <Setter Property="Location" Value="{Binding Location, Converter={StaticResource PointConverter}, DataType={x:Type models:Node}}" />
-                    <Setter Property="ActualSize" Value="{Binding ActualSize, Converter={StaticResource SizeConverter}, DataType={x:Type models:Node}}" />
+                    <Setter Property="Location" Value="{Binding Location, DataType={x:Type models:Node}}" />
+                    <Setter Property="Bounds" Value="{Binding Bounds, DataType={x:Type models:Node}, Mode=OneWayToSource}" />
                 </ControlTheme>
             </nodify:NodifyEditor.ItemContainerTheme>
         </nodify:NodifyEditor>

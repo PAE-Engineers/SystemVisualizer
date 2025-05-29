@@ -1,4 +1,5 @@
-﻿using SystemVisualizer.Core.Interfaces;
+﻿using Avalonia;
+using SystemVisualizer.Core.Interfaces;
 
 namespace SystemVisualizer.Core.Models
 {
@@ -12,9 +13,9 @@ namespace SystemVisualizer.Core.Models
             set => SetProperty(ref _name, value);
         }
 
-        private (double X, double Y) _anchor;
+        private Point _anchor;
 
-        public (double X, double Y) Anchor
+        public Point Anchor
         {
             get => _anchor;
             set => SetProperty(ref _anchor, value);

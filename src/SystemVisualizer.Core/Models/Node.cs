@@ -1,5 +1,6 @@
 ﻿
 using System.Diagnostics;
+using Avalonia;
 using SystemVisualizer.Core.Interfaces;
 
 namespace SystemVisualizer.Core.Models
@@ -12,6 +13,7 @@ namespace SystemVisualizer.Core.Models
             Outputs.WhenAdded(c => WhenAdded(c, ConnectorType.Input));
 
             Inputs.WhenRemoved(c => WhenRemoved(c));
+            Debug.Write($"Created Node: {Name}");
         }
 
         private void WhenRemoved(Connector connector)
@@ -32,28 +34,47 @@ namespace SystemVisualizer.Core.Models
             set => SetProperty(ref _name, value);
         }
 
+       
         public string Cluster { get; set; } = string.Empty;
 
         public GraphObservableCollection<Connector> Inputs { get; set; } = new();
         public GraphObservableCollection<Connector> Outputs { get; set; } = new();
 
-        private (double X, double Y) _location;
-
-        public (double X, double Y) Location
+        private Point _location = new();
+        public Point Location
         {
             get => _location;
             set
             {
                 SetProperty(ref _location, value);
-                Debug.Write($"{Name}: ({Location.X}, {Location.Y}) , {ActualSize.W}X{ActualSize.H}");
+                Debug.WriteLine($"{Name}: ({Location.X}, {Location.Y}) , {Width}X{Height}");
             }
         }
 
-        private (double W, double H) _size = (0, 0);
-        public (double W, double H) ActualSize
+        private Rect _bounds = new Rect(0, 0, 100, 100);
+
+        public Rect Bounds
         {
-            get => _size;
-            set => SetProperty(ref _size, value);
+            get => _bounds;
+            set
+            {
+                SetProperty(ref _bounds, value);
+                Debug.WriteLine($"{Name}: Bounds updated to {value.Width}x{value.Height} at ({value.X}, {value.Y})");
+            }
+        }
+
+        private double _height;
+        public double Height
+        {
+            get => _height;
+            set => SetProperty(ref _height, value);
+        }
+
+        private double _width;
+        public double Width
+        {
+            get => _width;
+            set => SetProperty(ref _width, value);
         }
 
 
@@ -63,7 +84,6 @@ namespace SystemVisualizer.Core.Models
             {
                 return Name.Equals(node.Name);
             }
-
             return false;
         }
 

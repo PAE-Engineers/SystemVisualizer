@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Avalonia;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SystemVisualizer.Core.Enums;
@@ -39,22 +40,11 @@ public partial class EditorViewModel : ViewModelBase
     [ObservableProperty]
     private string _searchText = string.Empty;
     
-    //[ObservableProperty]
-    (double X, double Y) _viewportLocation = (0, 0);
-    public (double X, double Y) ViewportLocation
-    {
-        get => _viewportLocation;
-        set
-        {
-                OnPropertyChanging(nameof(ViewportLocation));
-                _viewportLocation = value;
-             
-                OnPropertyChanged(nameof(ViewportLocation));
-        }
-    }
+    [ObservableProperty]
+    Point _viewportLocation = new();
     
     [ObservableProperty]
-    (double Width, double Height) _viewportSize = (1000, 1000);
+    double _viewportZoom;
     
     [RelayCommand]
     public void ApplyLayout()
@@ -65,20 +55,19 @@ public partial class EditorViewModel : ViewModelBase
     [RelayCommand]
     private void ZoomIn()
     {
-        ViewportSize = (ViewportSize.Width * 1.1, ViewportSize.Height * 1.1);
+        ViewportZoom *= 1.1; //(ViewportSize.Width * 1.1, ViewportSize.Height * 1.1);
     }
-
     
     [RelayCommand]
     private void ZoomOut()
     {
-        ViewportSize = (ViewportSize.Width * .9, ViewportSize.Height * .9);
+        ViewportZoom *= .9; // (ViewportSize.Width * .9, ViewportSize.Height * .9);
     }  
        
     [RelayCommand]
     private void ResetViewport()
     {
-        ViewportLocation = (0, 0);
+        ViewportLocation = new(0, 0);
         //ViewportSize = (1000, 1000);
     } 
     
