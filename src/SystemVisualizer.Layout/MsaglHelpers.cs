@@ -57,7 +57,7 @@ namespace SystemVisualizer.Layout
 
         public static ICurve CreateCurve( IGraphItem item)
         {
-            return CurveFactory.CreateRectangle(item.Bounds.Width + 100, item.Bounds.Height, new Point());
+            return CurveFactory.CreateRectangle(item.Bounds.Width + 500, item.Bounds.Height, new Point());
         }
     }
 }

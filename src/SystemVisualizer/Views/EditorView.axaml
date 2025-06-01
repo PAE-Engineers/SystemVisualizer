@@ -42,8 +42,6 @@
 
                 <DataTemplate DataType="{x:Type models:Node}">
                     <nodify:Node
-                        Width="{Binding Width, Mode=OneWayToSource}"
-                        Height="{Binding Height, Mode=OneWayToSource}"
                         Header="{Binding Name}"
                         Input="{Binding Inputs}"
                         Output="{Binding Outputs}"
@@ -72,9 +70,12 @@
             </nodify:NodifyEditor.ItemTemplate>
 
             <nodify:NodifyEditor.ItemContainerTheme>
-                <ControlTheme TargetType="{x:Type nodify:ItemContainer}">
+                <ControlTheme TargetType="{x:Type nodify:ItemContainer}" BasedOn="{StaticResource {x:Type nodify:ItemContainer}}">
                     <Setter Property="Location" Value="{Binding Location, DataType={x:Type models:Node}}" />
                     <Setter Property="Bounds" Value="{Binding Bounds, DataType={x:Type models:Node}, Mode=OneWayToSource}" />
+                    <Setter Property="IsSelectable" Value="True"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="SelectedBorderThickness" Value="8"/>
                 </ControlTheme>
             </nodify:NodifyEditor.ItemContainerTheme>
         </nodify:NodifyEditor>

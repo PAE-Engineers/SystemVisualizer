@@ -37,7 +37,21 @@
                <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
            </DockPanel>
         
-           <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Nodes}" AutoScrollToSelectedItem="True" >
+           <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Nodes}" AutoScrollToSelectedItem="True" 
+                    SelectedItem="{Binding SelectedNode}"
+                    >
+               <ListBox.Theme>
+                   <ControlTheme TargetType="{x:Type ListBox}" 
+                                 BasedOn="{StaticResource {x:Type ListBox}}">
+                       <Setter Property="(Interaction.Behaviors)">
+                           <BehaviorCollectionTemplate>
+                               <BehaviorCollection>
+                                   </BehaviorCollection>
+                               </BehaviorCollectionTemplate>
+                           </Setter>
+                   </ControlTheme>
+               </ListBox.Theme>
+                 
                <ListBox.ItemTemplate>
                    <DataTemplate>
                        <TextBlock Text="{Binding Name}"/>

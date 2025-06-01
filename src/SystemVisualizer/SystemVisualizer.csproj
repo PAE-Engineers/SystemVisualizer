@@ -31,4 +31,13 @@
   <ItemGroup>
     <Folder Include="SampleData\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Nodify.Shared">
+      <HintPath>..\..\lib\Nodify\Nodify.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Xaml.Behaviors.Interactivity">
+      <HintPath>..\..\..\..\.nuget\packages\xaml.behaviors.interactivity\11.3.0.10\lib\net8.0\Xaml.Behaviors.Interactivity.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

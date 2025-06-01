@@ -68,7 +68,6 @@ public partial class EditorViewModel : ViewModelBase
     private void ResetViewport()
     {
         ViewportLocation = new(0, 0);
-        //ViewportSize = (1000, 1000);
     } 
     
     public void LoadData(IEnumerable<IGraphItem> nodes, IEnumerable<Edge> connections)
@@ -84,7 +83,7 @@ public partial class EditorViewModel : ViewModelBase
             Connections.Add(connection);
         }
         
-        //ApplyLayout();
+        ApplyLayout();
     }
 
 

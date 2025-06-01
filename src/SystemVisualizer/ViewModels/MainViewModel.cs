@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using SystemVisualizer.Core.Interfaces;
 using Avalonia.Platform.Storage;
+using CommunityToolkit.Mvvm.Input;
 using SystemVisualizer.Core.Enums;
 using SystemVisualizer.Layout;
 
@@ -27,6 +28,25 @@ public partial class MainViewModel(IDataProvider dataProvider) : ViewModelBase
             .OrderBy(n => n.Name)
         );
 
+    [ObservableProperty]
+    private IGraphItem _selectedNode;
+    
+    [RelayCommand]
+    private void SelectionChanged(IGraphItem? node)
+    {
+        if (node is not null)
+        {
+            SelectedNode = node;
+            Editor.SelectedNodes.Clear();
+            Editor.SelectedNodes.Add(node);
+        }
+        else
+        {
+            SelectedNode = null;
+            Editor.SelectedNodes.Clear();
+        }
+    }
+    
     public async Task OpenDataFileAsync()
     {
         // Get the storage provider from the current TopLevel
