@@ -1,31 +1,37 @@
 <Project>
-    <!-- https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management -->
-    <PropertyGroup>
-        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    </PropertyGroup>
-    <ItemGroup>
-        <!-- Avalonia packages -->
-        <!-- Important: keep version in sync! -->
-        <PackageVersion Include="Avalonia" Version="11.3.0"/>
-        <PackageVersion Include="Avalonia.Themes.Fluent" Version="11.2.1"/>
-        <PackageVersion Include="Avalonia.Fonts.Inter" Version="11.2.1"/>
-        <PackageVersion Include="Avalonia.Diagnostics" Version="11.2.8"/>
-        <PackageVersion Include="Avalonia.Desktop" Version="11.2.8"/>
-        <PackageVersion Include="Avalonia.iOS" Version="11.2.8"/>
-        <PackageVersion Include="Avalonia.Browser" Version="11.2.8"/>
-        <PackageVersion Include="Avalonia.Android" Version="11.2.8"/>
-        <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.3.2"/>
-        <PackageVersion Include="CsvHelper" Version="33.0.1"/>
-        <PackageVersion Include="ExcelMapper" Version="5.2.604"/>
-        <PackageVersion Include="Nodify" Version="7.0.3"/>
-        <PackageVersion Include="NodifyAvalonia" Version="6.5.0"/>
-        <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.1"/>
-        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
-        <PackageVersion Include="NUnit" Version="4.0.1"/>
-        <PackageVersion Include="NUnit3TestAdapter" Version="4.5.0"/>
-        <PackageVersion Include="NUnit.Analyzers" Version="3.10.0"/>
-        <PackageVersion Include="coverlet.collector" Version="6.0.0"/>
-        <PackageVersion Include="Microsoft.Msagl" Version="1.1.6"/>
-        <PackageVersion Include="Xaml.Behaviors.Interactivity" Version="11.3.0.10"/>
-    </ItemGroup>
+  <!-- https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Avalonia packages -->
+    <!-- Important: keep version in sync! -->
+    <PackageVersion Include="Avalonia" Version="11.3.0" />
+    <PackageVersion Include="Avalonia.Themes.Fluent" Version="11.3.0" />
+    <PackageVersion Include="Avalonia.Fonts.Inter" Version="11.3.0" />
+    <PackageVersion Include="Avalonia.Diagnostics" Version="11.3.0" />
+    <PackageVersion Include="Avalonia.Desktop" Version="11.3.0" />
+    <PackageVersion Include="Avalonia.iOS" Version="11.3.0" />
+    <PackageVersion Include="Avalonia.Browser" Version="11.3.0" />
+    <PackageVersion Include="Avalonia.Android" Version="11.3.0" />
+    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageVersion Include="CsvHelper" Version="33.0.1" />
+    <PackageVersion Include="ExcelMapper" Version="6.0.609" />
+    <PackageVersion Include="Nodify" Version="7.0.3" />
+    <PackageVersion Include="NodifyAvalonia" Version="6.5.0" />
+    <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.15" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.0" />
+    <PackageVersion Include="NUnit" Version="4.3.2" />
+    <PackageVersion Include="NUnit3TestAdapter" Version="5.0.0" />
+    <PackageVersion Include="NUnit.Analyzers" Version="4.8.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageVersion>
+    <PackageVersion Include="coverlet.collector" Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageVersion>
+    <PackageVersion Include="Microsoft.Msagl" Version="1.1.6" />
+    <PackageVersion Include="Xaml.Behaviors.Interactivity" Version="11.3.0.10" />
+  </ItemGroup>
 </Project>

@@ -10,25 +10,34 @@
     xmlns:models="clr-namespace:SystemVisualizer.Core.Models;assembly=SystemVisualizer.Core"
     xmlns:nodify="https://miroiu.github.io/nodify"
     xmlns:viewModels="clr-namespace:SystemVisualizer.ViewModels"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviours="clr-namespace:Nodify.Shared.Behaviours">
 
     <Grid RowDefinitions="Auto, *">
-<StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10">
-    <Button Content="+" Command="{Binding ZoomInCommand}"/>
-    <Button Content="-" Command="{Binding ZoomOutCommand}"/>
-    <Button Content="Reset" Command="{Binding ResetViewportCommand}"/>
-    
-</StackPanel>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10">
+            <Button Content="+" Command="{Binding ZoomInCommand}" />
+            <Button Content="-" Command="{Binding ZoomOutCommand}" />
+            <Button Content="Reset" Command="{Binding ResetViewportCommand}" />
+            <behaviours:WpfBtn Content="Bring Into View" 
+                               Command="{Binding BringIntoViewCommand}"
+                               CommandParameter="{Binding SelectedNode.Location}"
+                               CommandTarget="{Binding ElementName=NodeEditor}"/>
+           
+
+        </StackPanel>
         <nodify:NodifyEditor
+            x:Name="NodeEditor"
             Connections="{Binding Connections}"
             Grid.Row="1"
             DisableZooming="False"
             DisablePanning="False"
+
             ViewportLocation="{Binding ViewportLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             ViewportZoom="{Binding ViewportZoom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             ItemsSource="{Binding Nodes}"
             SelectedItem="{Binding SelectedNode}"
-            SelectedItems="{Binding SelectedNodes}">
+            SelectedItems="{Binding SelectedNodes}"
+            >
 
             <nodify:NodifyEditor.ConnectionTemplate>
 
@@ -44,8 +53,7 @@
                     <nodify:Node
                         Header="{Binding Name}"
                         Input="{Binding Inputs}"
-                        Output="{Binding Outputs}"
-                        >
+                        Output="{Binding Outputs}">
 
                         <nodify:Node.InputConnectorTemplate>
                             <DataTemplate DataType="{x:Type models:Connector}">
@@ -70,12 +78,14 @@
             </nodify:NodifyEditor.ItemTemplate>
 
             <nodify:NodifyEditor.ItemContainerTheme>
-                <ControlTheme TargetType="{x:Type nodify:ItemContainer}" BasedOn="{StaticResource {x:Type nodify:ItemContainer}}">
+                <ControlTheme TargetType="{x:Type nodify:ItemContainer}"
+                              BasedOn="{StaticResource {x:Type nodify:ItemContainer}}">
                     <Setter Property="Location" Value="{Binding Location, DataType={x:Type models:Node}}" />
-                    <Setter Property="Bounds" Value="{Binding Bounds, DataType={x:Type models:Node}, Mode=OneWayToSource}" />
-                    <Setter Property="IsSelectable" Value="True"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                    <Setter Property="SelectedBorderThickness" Value="8"/>
+                    <Setter Property="Bounds"
+                            Value="{Binding Bounds, DataType={x:Type models:Node}, Mode=OneWayToSource}" />
+                    <Setter Property="IsSelectable" Value="True" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="SelectedBorderThickness" Value="8" />
                 </ControlTheme>
             </nodify:NodifyEditor.ItemContainerTheme>
         </nodify:NodifyEditor>

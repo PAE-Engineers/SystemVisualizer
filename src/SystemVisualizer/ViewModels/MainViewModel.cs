@@ -31,6 +31,20 @@ public partial class MainViewModel(IDataProvider dataProvider) : ViewModelBase
     [ObservableProperty]
     private IGraphItem _selectedNode;
     
+    partial void OnSelectedNodeChanged(IGraphItem? value)
+    {
+        Editor.SelectedNode = value;
+        // if (value is not null)
+        // {
+        //     Editor.SelectedNodes.Clear();
+        //     Editor.SelectedNodes.Add(value);
+        // }
+        // else
+        // {
+        //     Editor.SelectedNodes.Clear();
+        // }
+    }
+    
     [RelayCommand]
     private void SelectionChanged(IGraphItem? node)
     {

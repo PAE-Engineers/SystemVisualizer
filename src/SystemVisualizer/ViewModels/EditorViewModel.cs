@@ -4,9 +4,13 @@ using System.Collections.ObjectModel;
 using Avalonia;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using Nodify;
+using Nodify.Compatibility;
 using SystemVisualizer.Core.Enums;
 using SystemVisualizer.Core.Interfaces;
 using SystemVisualizer.Core.Models;
+using SystemVisualizer.Messages;
 
 namespace SystemVisualizer.ViewModels;
 
@@ -29,7 +33,16 @@ public partial class EditorViewModel : ViewModelBase
     private ObservableCollection<IGraphItem> _selectedNodes = new();
     
     [ObservableProperty]
-    private IGraphItem _selectedNode;
+    private IGraphItem? _selectedNode;
+    
+    partial void OnSelectedNodeChanged(IGraphItem? value)
+    {
+        if (value != null)
+        {
+            //BringIntoViewCommand.Execute(value.Location, null);
+            WeakReferenceMessenger.Default.Send(new SelectedNodeChangedMessage(value));
+        }
+    }
 
     [ObservableProperty] 
     private ObservableCollection<Edge> _connections = new();
@@ -52,9 +65,15 @@ public partial class EditorViewModel : ViewModelBase
        _layoutProvider.ApplyLayout(Nodes, Connections, LayoutType.Hierarchical, RoutingMode.RightAngle); 
     }
 
+    public RoutedUICommand BringIntoViewCommand => Nodify.EditorCommands.BringIntoView;
+
+  
+
     [RelayCommand]
     private void ZoomIn()
     {
+        
+        
         ViewportZoom *= 1.1; //(ViewportSize.Width * 1.1, ViewportSize.Height * 1.1);
     }
     
