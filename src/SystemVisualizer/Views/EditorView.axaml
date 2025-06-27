@@ -23,6 +23,8 @@
                                CommandParameter="{Binding SelectedNode.Location}"
                                CommandTarget="{Binding ElementName=NodeEditor}"/>
            
+            <TextBlock>Selected Nodes:</TextBlock>
+            <TextBlock Text="{Binding SelectedNodes.Count}"/>
 
         </StackPanel>
         <nodify:NodifyEditor
