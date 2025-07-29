@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="clr-namespace:SystemVisualizer.Views"
+    xmlns:visualBasic="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic.Core"
     xmlns:vm="clr-namespace:SystemVisualizer.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.DataContext>
@@ -31,36 +32,41 @@
             </Menu.Items>
         </Menu>
 
-        <Grid Grid.Row="2" ColumnDefinitions="Auto, 10, *" RowDefinitions="Auto, *">
-           <DockPanel>
-               <Label Content="Search:" DockPanel.Dock="Left"/>
-               <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
-           </DockPanel>
-        
-           <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Nodes}" AutoScrollToSelectedItem="True" 
-                    SelectedItem="{Binding SelectedNode}"
-                    >
-               <ListBox.Theme>
-                   <ControlTheme TargetType="{x:Type ListBox}" 
-                                 BasedOn="{StaticResource {x:Type ListBox}}">
-                       <Setter Property="(Interaction.Behaviors)">
-                           <BehaviorCollectionTemplate>
-                               <BehaviorCollection>
-                                   </BehaviorCollection>
-                               </BehaviorCollectionTemplate>
-                           </Setter>
-                   </ControlTheme>
-               </ListBox.Theme>
-                 
-               <ListBox.ItemTemplate>
-                   <DataTemplate>
-                       <TextBlock Text="{Binding Name}"/>
-                   </DataTemplate>
-               </ListBox.ItemTemplate>
-           </ListBox>
-            <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"/> 
-            <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
+        <Grid
+            ColumnDefinitions="Auto, 10, *"
+            Grid.Row="2"
+            Margin="10"
+            RowDefinitions="Auto, *">
+            <DockPanel>
+                <Label Content="Search:" DockPanel.Dock="Left" />
+                <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
+            </DockPanel>
+
+            <ListBox
+                AutoScrollToSelectedItem="True"
+                Grid.Column="0"
+                Grid.Row="1"
+                ItemsSource="{Binding Nodes}"
+                SelectedItem="{Binding SelectedNode}">
+                <ListBox.Theme>
+                    <ControlTheme BasedOn="{StaticResource {x:Type ListBox}}" TargetType="{x:Type ListBox}" />
+                </ListBox.Theme>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <GridSplitter
+                Grid.Column="1"
+                Grid.Row="0"
+                Grid.RowSpan="2" />
+            <Border
                 Background="{DynamicResource ThemeBackground}"
+                Grid.Column="2"
+                Grid.Row="0"
+                Grid.RowSpan="2"
                 Margin="10"
                 Padding="10">
                 <views:EditorView DataContext="{Binding Editor}" />
