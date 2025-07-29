@@ -1,0 +1,67 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="Brushes.xaml" />
+        <ResourceInclude Source="Controls.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Color x:Key="PanelBackgroundColor">#1A1A1A</Color>
+    
+    <Color x:Key="ForegroundColor">White</Color>
+    <Color x:Key="DisabledForegroundColor">Gray</Color>
+    <Color x:Key="BackgroundColor">#333337</Color>
+    <Color x:Key="ContrastBackgroundColor">#1B1B1C</Color>
+    <Color x:Key="HighlightedBackgroundColor">#3F3F46</Color>
+    <Color x:Key="BorderColor">#3F3F3F</Color>
+    <Color x:Key="DisabledBorderColor">Gray</Color>
+    <Color x:Key="HighlightedBorderColor">#7EB4EA</Color>
+    <Color x:Key="FocusedBorderColor">#569DE5</Color>
+    <Color x:Key="GridLinesColor">#333337</Color>
+    
+    <Color x:Key="NodifyEditor.BackgroundColor">#1E1E1E</Color>
+    <Color x:Key="NodifyEditor.ForegroundColor">White</Color>
+    <Color x:Key="NodifyEditor.SelectionRectangleColor">DodgerBlue</Color>
+    <Color x:Key="NodifyEditor.CuttingLineColor">Red</Color>
+    <Color x:Key="ItemContainer.BorderColor">DodgerBlue</Color>
+    <Color x:Key="ItemContainer.SelectedColor">Orange</Color>
+    <Color x:Key="Node.BackgroundColor">#2D2D30</Color>
+    <Color x:Key="Node.ContentColor">#2D2D30</Color>
+    <Color x:Key="Node.ForegroundColor">White</Color>
+    <Color x:Key="Node.HeaderForegroundColor">White</Color>
+    <Color x:Key="Node.HeaderColor">#1E1E1E</Color>
+    <Color x:Key="Node.FooterColor">#1E1E1E</Color>
+    <Color x:Key="Node.BorderColor">Transparent</Color>
+    <Color x:Key="StateNode.BackgroundColor">#171717</Color>
+    <Color x:Key="StateNode.ForegroundColor">White</Color>
+    <Color x:Key="StateNode.BorderColor">#484848</Color>
+    <Color x:Key="StateNode.HighlightColor">#D6D3D6</Color>
+    <Color x:Key="GroupingNode.BackgroundColor">#3E3E42</Color>
+    <Color x:Key="GroupingNode.ForegroundColor">White</Color>
+    <Color x:Key="GroupingNode.HeaderColor">#1E1E1E</Color>
+    <Color x:Key="GroupingNode.BorderColor">Transparent</Color>
+    <Color x:Key="KnotNode.BackgroundColor">Transparent</Color>
+    <Color x:Key="KnotNode.ForegroundColor">DodgerBlue</Color>
+    <Color x:Key="KnotNode.BorderColor">Transparent</Color>
+    <Color x:Key="Connector.BackgroundColor">Transparent</Color>
+    <Color x:Key="Connector.ForegroundColor">White</Color>
+    <Color x:Key="Connector.BorderColor">DodgerBlue</Color>
+    <Color x:Key="NodeInput.BackgroundColor">#2D2D30</Color>
+    <Color x:Key="NodeInput.ForegroundColor">White</Color>
+    <Color x:Key="NodeInput.BorderColor">DodgerBlue</Color>
+    <Color x:Key="NodeOutput.BackgroundColor">#2D2D30</Color>
+    <Color x:Key="NodeOutput.ForegroundColor">White</Color>
+    <Color x:Key="NodeOutput.BorderColor">DodgerBlue</Color>
+    <Color x:Key="Connection.StrokeColor">DodgerBlue</Color>
+    <Color x:Key="LineConnection.StrokeColor">DodgerBlue</Color>
+    <Color x:Key="CircuitConnection.StrokeColor">DodgerBlue</Color>
+    <Color x:Key="StepConnection.StrokeColor">DodgerBlue</Color>
+    <Color x:Key="PendingConnection.StrokeColor">DodgerBlue</Color>
+    <Color x:Key="PendingConnection.BorderColor">Black</Color>
+    <Color x:Key="PendingConnection.ForegroundColor">White</Color>
+    <Color x:Key="PendingConnection.BackgroundColor">#121212</Color>
+    <Color x:Key="Minimap.BackgroundColor">#121212</Color>
+    <Color x:Key="Minimap.ViewportStrokeColor">#74747c</Color>
+    <Color x:Key="Minimap.ViewportBackgroundColor">#74747c</Color>
+    <Color x:Key="MinimapItem.BackgroundColor">DodgerBlue</Color>
+</ResourceDictionary>
