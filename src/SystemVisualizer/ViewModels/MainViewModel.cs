@@ -30,7 +30,7 @@ public partial class MainViewModel(IDataProvider dataProvider) : ViewModelBase
 
     [ObservableProperty]
     private IGraphItem _selectedNode;
-    
+
     partial void OnSelectedNodeChanged(IGraphItem? value)
     {
         Editor.SelectedNode = value;
