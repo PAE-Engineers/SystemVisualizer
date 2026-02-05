@@ -20,6 +20,42 @@ dotnet test src/SystemVisualizer.sln
 
 # Run specific test project
 dotnet test src/SystemVisualizer.Tests/SystemVisualizer.Tests.csproj
+
+# Build Browser (WASM) project for local testing
+dotnet publish src/SystemVisualizer.Browser/SystemVisualizer.Browser.csproj -c Release -o publish
+```
+
+## Browser Deployment (GitHub Pages)
+
+The app is deployed to GitHub Pages at: https://pae-engineers.github.io/SystemVisualizer/
+
+### Deployment Workflow
+
+The `.github/workflows/deploy-github-pages.yml` workflow automatically deploys to GitHub Pages on push to `main`.
+
+**Required workloads:** The workflow installs `wasm-tools` and `wasm-tools-net9` for .NET WASM compilation.
+
+### IL Trimming Configuration
+
+The Browser project uses IL trimming for smaller WASM bundles. To prevent reflection-based libraries from breaking, assemblies are preserved in `SystemVisualizer.Browser.csproj`:
+
+```xml
+<ItemGroup>
+  <TrimmerRootAssembly Include="CsvHelper" />
+  <TrimmerRootAssembly Include="SystemVisualizer.DataProviders" />
+</ItemGroup>
+```
+
+### Local Browser Testing
+
+```bash
+# Option 1: Direct dotnet serve
+dotnet publish src/SystemVisualizer.Browser -c Release -o publish
+# Then serve publish/wwwroot with any static file server
+
+# Option 2: Docker (requires Docker Desktop)
+docker-compose -f docker-compose.serve.yml up -d
+# Access at http://localhost:3000
 ```
 
 ## Architecture
@@ -30,7 +66,8 @@ dotnet test src/SystemVisualizer.Tests/SystemVisualizer.Tests.csproj
 - **SystemVisualizer.Core** - Domain models and interfaces (Node, Edge, Connector, Graph, IDataProvider, ILayoutProvider)
 - **SystemVisualizer.DataProviders** - Excel/CSV file parsing using ExcelMapper and CsvHelper
 - **SystemVisualizer.Layout** - Graph layout computation using Microsoft MSAGL
-- **SystemVisualizer.Desktop** - Entry point executable
+- **SystemVisualizer.Desktop** - Desktop entry point executable
+- **SystemVisualizer.Browser** - Browser (WASM) entry point for web deployment
 - **SystemVisualizer.Tests** - NUnit test project
 
 ### Key Patterns

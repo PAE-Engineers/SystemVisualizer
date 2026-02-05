@@ -1,0 +1,9 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: systemvisualizer-web
+    volumes:
+      - ./publish/wwwroot:/usr/share/nginx/html:ro
+    ports:
+      - "3000:80"
+    restart: unless-stopped
