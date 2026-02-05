@@ -8,6 +8,12 @@
     <WasmBuildNative>true</WasmBuildNative>
   </PropertyGroup>
 
+  <!-- Preserve CsvHelper reflection metadata from trimming -->
+  <ItemGroup>
+    <TrimmerRootAssembly Include="CsvHelper" />
+    <TrimmerRootAssembly Include="SystemVisualizer.DataProviders" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Avalonia.Browser" />
   </ItemGroup>
